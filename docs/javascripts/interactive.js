@@ -34,7 +34,7 @@ function getDialog() {
   dlg.className = "mui-dialog";
   dlg.innerHTML =
     '<button class="mui-dialog-close" aria-label="Close">&#10005;</button>' +
-    '<div class="mui-dialog-content"></div>';
+    '<div class="mui-dialog-content md-typeset"></div>';
   document.body.appendChild(dlg);
   dlg.querySelector(".mui-dialog-close")
      .addEventListener("click", function () { dlg.close(); });
