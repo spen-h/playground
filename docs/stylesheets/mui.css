@@ -147,8 +147,16 @@
     0 9px  46px 8px rgba(0,0,0,.12);
 }
 
-.mui-dialog::backdrop { background: rgba(0,0,0,.5); }
-.mui-dialog[open] { animation: mui-dialog-in .225s cubic-bezier(0,0,.2,1); }
+.mui-dialog-content { padding: 1.5rem; }
+.mui-dialog-content > :first-child { margin-top: 0; }
+.mui-dialog-content > :last-child { margin-bottom: 0; }
+
+/* Wide tables shouldn't blow out the dialog width */
+.mui-dialog-content .md-typeset__table,
+.mui-dialog-content table:not([class]) {
+  max-width: 100%;
+  overflow-x: auto;
+}
 
 @keyframes mui-dialog-in {
   from { opacity: 0; transform: scale(.85); }
