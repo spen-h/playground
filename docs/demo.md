@@ -1,98 +1,92 @@
 # Component reference
 
-## Cards
+Filter the cards, then click one for detail.
 
-<div class="grid cards" markdown>
-
--   :material-rocket-launch:{ .lg .middle } **Getting started**
-
-    ---
-
-    Laptop, accounts and access in under an hour.
-
-    [:octicons-arrow-right-24: Onboarding](onboarding.md)
-
--   :material-shield-lock:{ .lg .middle } **Security**
-
-    ---
-
-    Policies, incident reporting, and access requests.
-
-    [:octicons-arrow-right-24: Read more](#)
-
--   :material-account-group:{ .lg .middle } **Teams**
-
-    ---
-
-    Who owns what, and where to ask questions.
-
-    [:octicons-arrow-right-24: Read more](#)
-
+<div class="mui-filters">
+  <button class="mui-chip is-active" data-filter="all" aria-pressed="true">All</button>
+  <button class="mui-chip" data-filter="engineering" aria-pressed="false">Engineering</button>
+  <button class="mui-chip" data-filter="people" aria-pressed="false">People</button>
+  <button class="mui-chip" data-filter="security" aria-pressed="false">Security</button>
 </div>
 
-[Primary action](#){ .md-button .md-button--primary }
-[Secondary](#){ .md-button }
+<div class="mui-grid" markdown>
 
-## Tabbed content
+<div class="mui-card" data-category="engineering" markdown>
 
-=== "macOS"
+### Deployment runbook
 
-```bash
-    brew install git
-```
+How a change gets from a branch to production.
 
-=== "Windows"
+<div class="mui-card-detail" markdown>
 
-```powershell
-    winget install Git.Git
-```
+#### Deployment runbook
 
-=== "Linux"
+1. Open a pull request against `main`
+2. Wait for CI to pass
+3. Get one approval from a code owner
+4. Merge — the pipeline deploys automatically
 
-```bash
-    sudo apt install git
-```
+!!! warning "Out of hours"
+    Deployments after 4pm Friday need a second approver.
 
-## Diagrams
+</div>
+</div>
 
-```mermaid
-graph LR
-  A[Edit in branch] --> B[Open PR]
-  B --> C{Review}
-  C -->|Approved| D[Merge to main]
-  C -->|Changes needed| A
-  D --> E[Actions builds]
-  E --> F[Published]
-```
+<div class="mui-card" data-category="people" markdown>
 
-## Annotated code
+### First week
 
-```yaml
-theme:
-  name: material  # (1)!
-  features:
-    - navigation.tabs  # (2)!
-```
+Laptop, accounts and introductions.
 
-1.  The theme package, installed via pip.
-2.  Turns top-level nav into a horizontal tab bar.
+<div class="mui-card-detail" markdown>
 
-## Callouts
+#### First week
 
-!!! warning "Access required"
-    Requires SSO membership in the platform group.
+- **Day 1** — hardware collection, SSO enrolment
+- **Day 2** — team introductions, systems walkthrough
+- **Day 3** — first ticket, paired with a buddy
 
-??? note "Collapsed by default"
-    Useful for long reference material you don't want dominating the page.
+</div>
+</div>
 
-## Checklists
+<div class="mui-card" data-category="security" markdown>
 
-- [x] Repository created
-- [x] Pages enabled
-- [ ] Custom domain configured
+### Reporting an incident
 
-## Tooltips
+Who to contact and what to include.
 
-Hover over SSO to see the definition.
+<div class="mui-card-detail" markdown>
 
-*[SSO]: Single Sign-On
+#### Reporting an incident
+
+Contact the security team immediately. Include:
+
+- What you observed, and when
+- Systems or accounts involved
+- Any action already taken
+
+Do not attempt remediation on production systems yourself.
+
+</div>
+</div>
+
+<div class="mui-card" data-category="engineering" markdown>
+
+### Environments
+
+What each environment is for.
+
+<div class="mui-card-detail" markdown>
+
+#### Environments
+
+| Name | Purpose | Data |
+|---|---|---|
+| Dev | Feature work | Synthetic |
+| Staging | Pre-release testing | Anonymised |
+| Prod | Live | Real |
+
+</div>
+</div>
+
+</div>
